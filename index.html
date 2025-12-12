@@ -1,13 +1,141 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>react-app</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Frota Premium</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo-area">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h2>Frota<span class="highlight">Pro</span></h2>
+            </div>
+            
+            <ul class="nav-links">
+                <li class="nav-item active" data-tab="tab-dashboard">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Visão Geral</span>
+                </li>
+                <li class="nav-item" data-tab="tab-maintenance">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>Manutenção</span>
+                </li>
+                <li class="nav-item" data-tab="tab-rentals">
+                    <i class="fa-solid fa-file-contract"></i>
+                    <span>Locações e Mobilização</span>
+                </li>
+                <li class="nav-item" data-tab="tab-damages">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Avarias e Danos</span>
+                </li>
+            </ul>
+
+            <div class="user-profile">
+                <div class="avatar">AD</div>
+                <div class="user-info">
+                    <p class="name">Admin User</p>
+                    <p class="role">Gestor de Frota</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1 id="page-title">Dashboard Principal</h1>
+                <div class="top-actions">
+                    <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+                    <button class="icon-btn"><i class="fa-solid fa-gear"></i></button>
+                </div>
+            </header>
+
+            <div id="content-area">
+                <!-- Tabs content will be injected here by JS -->
+                
+                <!-- Placeholder for Dashboard -->
+                <div id="tab-dashboard" class="tab-content active">
+                    <!-- Dashboard Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card" style="--delay: 0.1s">
+                            <div class="icon-box blue"><i class="fa-solid fa-truck"></i></div>
+                            <div class="stat-info">
+                                <h3>Frota Ativa</h3>
+                                <p class="value" id="dash-active-fleet">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card" style="--delay: 0.2s">
+                            <div class="icon-box green"><i class="fa-solid fa-check-double"></i></div>
+                            <div class="stat-info">
+                                <h3>Locados Hoje</h3>
+                                <p class="value" id="dash-rented-today">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card" style="--delay: 0.3s">
+                            <div class="icon-box red"><i class="fa-solid fa-ban"></i></div>
+                            <div class="stat-info">
+                                <h3>Em Manutenção</h3>
+                                <p class="value" id="dash-maintenance">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card" style="--delay: 0.4s">
+                            <div class="icon-box purple"><i class="fa-solid fa-wallet"></i></div>
+                            <div class="stat-info">
+                                <h3>Receita (Mês)</h3>
+                                <p class="value" id="dash-revenue">R$ 0,00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Area -->
+                    <div class="charts-grid">
+                        <div class="chart-card large">
+                            <h3>Receita de Locação (Últimos 6 meses)</h3>
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Status da Frota</h3>
+                            <canvas id="statusChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for Maintenance -->
+                <div id="tab-maintenance" class="tab-content hidden">
+                    <!-- Dynamic content loaded via JS -->
+                </div>
+
+                <!-- Placeholder for Rentals -->
+                <div id="tab-rentals" class="tab-content hidden">
+                    <!-- Dynamic content loaded via JS -->
+                </div>
+
+                <!-- Placeholder for Damages -->
+                <div id="tab-damages" class="tab-content hidden">
+                    <!-- Dynamic content loaded via JS -->
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
 </html>

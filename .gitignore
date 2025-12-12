@@ -8,9 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-react-app/node_modules
 dist
-react-app/dist
 dist-ssr
 *.local*.log
 npm-debug.log*
